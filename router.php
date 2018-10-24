@@ -7,7 +7,7 @@ class Router
     {
         $url = trim($url);
 
-        if ($url == "/PHP_Rush_MVC/")
+        if ($url == "/")
         {
             $request->controller = "tasks";
             $request->action = "index";
