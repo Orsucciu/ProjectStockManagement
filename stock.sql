@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 22 oct. 2018 à 19:50
+-- Généré le :  mer. 24 oct. 2018 à 12:45
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `arduino`;
 CREATE TABLE IF NOT EXISTS `arduino` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(100) NOT NULL,
+  `Nom` enum('Plateforme Robot 4WD + Moteurs pour Arduino','Arduino DUE','Shield GPRS V2','Clé USB WiFi 802.11n/b/g','RFbee - Module Radio Fréquence','Module RFID 13.56MHz IOS/IEC 14443 type a','Transpondeur Mifare 13.56Mhz - 8K - format carte','Transpondeur Mifare 1K ABS - 13.56 MHz','Détecteur d''Alcool (MQ3) - Grove','Capteur de Poussieres - PPD42NS','Capteur de temperature et d''humidité','Capteur Tactile - Grove','Accéléromètre 3 axes +/-8g ADXL362','Capteur de mesure à ultrasons URM37 V3.2','Capteur de mouvement IR','Camera UART - Grove','LCD 16x2 liaison Série - Grove','Shield Arduino WiFi','Shield Chargeur Solaire Li-Ion / LiPo V2','Batterie LiPo 3,7V - 850mAh','Adaptateur AC/DC 12V 2A - Régulé','Panneau solaire 5,5v 1w 75X100mm','Panneau solaire 5,5v 2,5w 116X160','Batterie LiPo USB 5V - 6600 mAh','Music Shield V2.0','Carte Micro SD 2GB + adaptateur SD','Module photo JPEG couleur TTL Infrarouge','Cable JST 4 pins (Grove) vers Jumper 2.54mm','Plaque d''essai sans soudure - 16.5x5.5cm','Cable jumper femelle (pack de 10)','Pack de 70 jumpers','Pack de 65 Jumpers Male-Femelle','Base Shield V1.3','Shield Arduino Ethernet Rev3 - PoE ready','Shield double Xbee','Shield Arduino XBee et carte SD','Capteur d''humidité des sols - Grove','Capteur de qualité d''air - Grove','Kit de capteurs meteo','Capteur de temperature - Grove','Thermographe infrarouge - Grove','Electrovanne - G1/2 (NC)','Capteur de débit d''eau - G3/4','Gyroscope 3 axes (Grove)','Detecteur d''ouverture de porte','Emetteur Infrarouge (Grove)','Récepteur Infrarouge (Grove)','GPSBee - module GPS compatible socket XBee','Batterie LiPo 3,7V - 3A','Arduino Yun','MK802 III Mini PC Dual Core','Plateforme Robot Rover 5 (4WD)','Arduino Motor Shield Rev3','Capteur Piezoelectrique','Moteur pas à pas 12V','Module de transmission d''Energie sans fil','Platine relais','Cable de connexion JST (2.0mm)','Cable de connexion JST (2.54mm)','Cable 3 pins vers 4 pins JST (Femelle-Femelle)','Cable JST 5 pins','Shield Chargeur Solaire Li-Ion / LiPo V2 (SLD80227P)','Shield GPRS','Shield Carte SD et MicroSD Arduino','Kit Arduino UNO','Boitier pour Arduino','Ethernet shield Wiznet','Shield LCD couleur') NOT NULL,
   `Quantité` int(11) NOT NULL,
   `Localisation` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -116,45 +116,45 @@ INSERT INTO `arduino` (`ID`, `Nom`, `Quantité`, `Localisation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `autres`
+-- Structure de la table `autre`
 --
 
-DROP TABLE IF EXISTS `autres`;
-CREATE TABLE IF NOT EXISTS `autres` (
+DROP TABLE IF EXISTS `autre`;
+CREATE TABLE IF NOT EXISTS `autre` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(50) NOT NULL,
-  `Descriptif` text NOT NULL,
-  `Localisation` varchar(50) NOT NULL,
+  `Nom` enum('Scanner code barre USB Serie','Mini PC Dual Core Android 4 0 UG802','MK802 III Mini PC Dual Core','Projecteur','Nao','Kit Lego MINDSTORMS EV3','capteurs de contact pour le robot Lego','Balise infrarouge IR360 pour NXT','Shield NXShield Dx','Shield BrickPI Basic Power Interface Raspberry Pi','Drone Parrot AR v 2 0 (ou equivalent)','Enregistreur de vol','Kit de batterie supplementaire','plateformes Rover V2 (ou equivalent)','Kits Bluetooth pour la plateforme Rover V2','Kits Xbee pour la plateforme Rover V2','Sauterelles Effrayees de marque OWI','mallettes mOway avec deux robots et accessoires','modules camera RF','modules de communication Wifi','kit smart city') NOT NULL,
+  `Descriptif` varchar(100) NOT NULL,
   `Quantité` int(11) NOT NULL,
+  `Localisation` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `autres`
+-- Déchargement des données de la table `autre`
 --
 
-INSERT INTO `autres` (`ID`, `Nom`, `Descriptif`, `Localisation`, `Quantité`) VALUES
-(1, 'Scanner code barre USB Série', '', 'PAB', 1),
-(2, 'Mini PC Dual Core Android 4.0 UG802', '', 'D. Urbani', 1),
-(3, 'MK802 III Mini PC Dual Core', '', 'D. Urbani', 1),
-(4, 'Projecteur', '', 'PAB', 2),
-(5, 'Nao', '', 'PAB', 2),
-(6, 'Kit Lego MINDSTORMS EV3', '', 'PAB', 2),
-(7, 'capteurs de contact pour le robot Lego', '', 'PAB', 2),
-(8, 'Balise infrarouge IR360 pour NXT', '', 'PAB', 2),
-(9, 'Shield NXShield-Dx ', 'pour Arduino Duemilanove ou Uno  ', 'PAB', 2),
-(10, 'Shield BrickPI Basic Power Interface Raspberry Pi', 'pour Lego Mindstorms', 'PAB', 2),
-(11, 'Drone Parrot AR v 2.0 ou équivalent', 'commandé par smartphone ou tablette', 'PAB', 2),
-(12, 'Enregistreur de vol ', '', 'PAB', 2),
-(13, 'Kit de batterie supplémentaire', '', 'PAB', 2),
-(14, 'plateformes Rover V2 (ou équivalent)', '', 'PAB', 2),
-(15, 'Kits Bluetooth pour la plateforme Rover V2 ', 'ou équivalent', 'PAB', 2),
-(16, ' Kits Xbee pour la plateforme Rover V2', 'ou équivalent', 'PAB', 2),
-(17, 'Sauterelles Effrayées de marque OWI', 'ou équivalent', 'PAB', 6),
-(18, 'mallettes mOway avec deux robots et accessoires', 'Cartes de communication RF, clé USB RF, câble USB liaison PC, logiciel et guide d’utilisation', 'PAB', 2),
-(19, 'modules caméra RF', '', 'PAB', 2),
-(20, 'modules de communication Wifi', '', 'PAB', 4),
-(21, 'kit smart city  ', '', 'PAB', 1);
+INSERT INTO `autre` (`ID`, `Nom`, `Descriptif`, `Quantité`, `Localisation`) VALUES
+(1, 'Scanner code barre USB Serie', '', 1, 'PAB'),
+(2, 'Mini PC Dual Core Android 4 0 UG802', '', 1, 'D. Urbani'),
+(3, 'MK802 III Mini PC Dual Core', '', 1, 'D. Urbani'),
+(4, 'Projecteur', '', 2, 'Bureau PA'),
+(5, 'Nao', '', 2, 'PAB'),
+(6, 'Kit Lego MINDSTORMS EV3', '', 2, 'PAB'),
+(7, 'capteurs de contact pour le robot Lego', '', 2, 'PAB'),
+(8, 'Balise infrarouge IR360 pour NXT', '', 2, 'PAB'),
+(9, 'Shield NXShield Dx', '', 2, 'PAB'),
+(10, 'Shield BrickPI Basic Power Interface Raspberry Pi', '', 2, 'PAB'),
+(11, 'Drone Parrot AR v 2 0 (ou equivalent)', 'commandé par smartphone ou tablette', 2, 'PAB'),
+(12, 'Enregistreur de vol', '', 2, 'PAB'),
+(13, 'Kit de batterie supplementaire', '', 2, 'PAB'),
+(14, 'plateformes Rover V2 (ou equivalent)', '', 2, 'PAB'),
+(15, 'Kits Bluetooth pour la plateforme Rover V2', '', 2, 'PAB'),
+(16, 'Kits Xbee pour la plateforme Rover V2', '', 2, 'PAB'),
+(17, 'Sauterelles Effrayees de marque OWI', '', 6, 'PAB'),
+(18, 'mallettes mOway avec deux robots et accessoires', '', 2, 'PAB'),
+(19, 'modules camera RF', '', 4, 'PAB'),
+(20, 'modules de communication Wifi', '', 4, 'PAB'),
+(21, 'kit smart city', '', 1, 'PAB');
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ INSERT INTO `autres` (`ID`, `Nom`, `Descriptif`, `Localisation`, `Quantité`) VA
 DROP TABLE IF EXISTS `materiel`;
 CREATE TABLE IF NOT EXISTS `materiel` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(99) NOT NULL,
+  `Nom` enum('oscilloscopes avec sonde','pinces','tournevis de précision (pack de 6)','démultiplexeur 4v1','multiplexeur 1v4','CAN','CNA','Kit Cluster Hat + 4 Pi Zero','haut parleurs','Shield écran LCD Tactile','Troisième main','Wattmetre prise intelligente qui mesure la consommation électrique','transistor NPN','Cable ethernet rj45 1m','Cable ethernet rj45 3m','Boîte Assortiement vis, écrous et entretoises nylon','Etain','DIP switch','shield moteur arduino','câblage','Platine d''expérimentation','Shield Lora Fabian Arduino','Chistera-Pi 1.2 LoRa + accessoires','GPSBee','module WiFi Arduino (Module WiFly RN-171 802.11b-g - UART)','Ecran pour raspberry','fils et cablage','Câbles USB vers micro USB','détecteur de pouls amplifié','Batteries','Google Home','Kit Raspberry Pi 3 Modele B+ (type kit starter)','Cable HDMI','Carte MicroSDHC 32GB','Raspberry Pi Zero WH','Plaquette de prototypage 400 contacts','Plaquette de prototypage 830 contacts','Lot de 70 câbles de prototypage mâle - mâle','Registre à décalage 8 bits','Module horloge temps réel','Kit caméra série Grove','Google AIY Voice Kit','Shield 4 Relays Arduino','Serrure électrique','KitPycom') NOT NULL,
   `Descriptif` text NOT NULL,
   `Quantité` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -231,7 +231,7 @@ INSERT INTO `materiel` (`ID`, `Nom`, `Descriptif`, `Quantité`) VALUES
 DROP TABLE IF EXISTS `phone`;
 CREATE TABLE IF NOT EXISTS `phone` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(50) NOT NULL,
+  `Nom` enum('Téléphone  Android','Tablette ipad (UMR)','Tablette Samsung (UMR)','Tablette Samsung','Montre Galaxie gear','iPOD','iPAD','iPAD mini','Galaxy tab 4') NOT NULL,
   `Localisation` varchar(50) NOT NULL,
   `Quantité` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -262,7 +262,7 @@ INSERT INTO `phone` (`id`, `Nom`, `Localisation`, `Quantité`) VALUES
 DROP TABLE IF EXISTS `raspberry`;
 CREATE TABLE IF NOT EXISTS `raspberry` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(50) NOT NULL,
+  `Nom` enum('Cable USB-Serie TTL - Console Raspberry-Pi','Clé USB WiFi 802.11n/b/g','écran LCD 9cm 8-15V - Video Composite','Hub USB alimenté 7 ports - 2A','Raspberry Pi Modele B 6','Raspberry Pi - Boitier (Transparent)','Raspberry Pi - Cable nappe GPIO','Raspberry Pi - Carte SD pré-programmée Linux - 8GB','Raspberry Pi - Connecteur GPIO','Raspberry Pi - Header 2x13 Pins longs','Raspberry Pi - Shield de Connexion Xbee et Arduino','XBee 2mW Serie 2 (ZigBee Mesh)','Clé USB XBee Explorer','Raspberry Pi - Shield de Prototypage','RaspiRobot','Kit tournevis de précision') NOT NULL,
   `Localisation` varchar(50) NOT NULL,
   `Quantité` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -299,7 +299,7 @@ INSERT INTO `raspberry` (`ID`, `Nom`, `Localisation`, `Quantité`) VALUES
 DROP TABLE IF EXISTS `umr`;
 CREATE TABLE IF NOT EXISTS `umr` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(50) NOT NULL,
+  `Nom` enum('Kit Robotique BrickPi+','Bras de robot articulé Phenoptix MeArm','Smart Video Car pour Raspberry Pi','Starter Kit Officiel Pi 3 B+','Capteur de température Lego Mindstorms NXT','Capteur de force pour NXT','Capteur de champ magnétique Lego Mindstorms NXT','Capteur Boussole pour Lego Mindstorms NXT','TPCAST Wireless Adaptor HTC Vive','KIT HTC VIVE','LEGO - 31313 - Mindstorms','LEGO MINDSTORMS Education','Cable de 10 cm pour Lego Mindstorms NXT et EV3','capteur de contact pour robot Lego Mindstorms EV3','Clé Wifi Edimax EW-7811UN','Lot de 4 Piles AA LR6 1.5V','Support de piles 4xAA avec Couvercle et bouton','Pack Batterie USB - 2200 mAh - 5V 1A','Servomoteur L LEGO® MINDSTORMS® Education EV3') NOT NULL,
   `Caractéristique` text NOT NULL,
   `Quantité` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -316,15 +316,15 @@ INSERT INTO `umr` (`ID`, `Nom`, `Caractéristique`, `Quantité`) VALUES
 (4, 'Starter Kit Officiel Pi 3 B+', 'Ce Kit contient la nouvelle carte Raspberry Pi 3 Modèle B+ 1GB, il comprend aussi le boîtier officiel de la fondation , une carte NOOBS micro SD 16Go, une alimentation 5V 2,5A, un câble HDMI 1m et un set de 2 Heat Sink.', 7),
 (5, 'Capteur de température Lego Mindstorms NXT', '', 1),
 (6, 'Capteur de force pour NXT', '', 1),
-(7, 'Capteur de champ magnétique Lego Mindstorms NXT ', '', 1),
-(8, 'Capteur Boussole pour Lego Mindstorms NXT ', '', 1),
+(7, 'Capteur de champ magnétique Lego Mindstorms NXT', '', 1),
+(8, 'Capteur Boussole pour Lego Mindstorms NXT', '', 1),
 (9, 'TPCAST Wireless Adaptor HTC Vive', 'Adaptateur sans fil pour casque HTC Vive', 0),
 (10, 'KIT HTC VIVE', 'casque de réalité virtuelle (VR) HTC Vive ', 1),
 (11, 'LEGO - 31313 - Mindstorms', ' Jeu de Construction - LEGO MINDSTORMS EV', 2),
 (12, 'LEGO MINDSTORMS Education', 'EV3 Set d\'expansion 45560', 3),
 (13, 'Cable de 10 cm pour Lego Mindstorms NXT et EV3', 'Ce kit contient une grande variété d’éléments LEGO parfaitement complémentaires à l\'Ensemble de base LEGO Mindstorms EV3', 8),
 (14, 'capteur de contact pour robot Lego Mindstorms EV3', '', 6),
-(15, 'Clé Wifi Edimax EW-7811UN ', 'compatible Lego Mindstorms EV3', 6),
+(15, 'Clé Wifi Edimax EW-7811UN', 'compatible Lego Mindstorms EV3', 6),
 (16, 'Lot de 4 Piles AA LR6 1.5V', '', 24),
 (17, 'Support de piles 4xAA avec Couvercle et bouton', '', 6),
 (18, 'Pack Batterie USB - 2200 mAh - 5V 1A', '', 8),
