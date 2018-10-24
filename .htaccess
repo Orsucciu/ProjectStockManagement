@@ -1,2 +1,4 @@
+Options +FollowSymLinks
 RewriteEngine on
+RewriteBase /project/
 RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ Webroot/$1
