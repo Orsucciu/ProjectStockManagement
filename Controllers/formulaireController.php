@@ -24,5 +24,15 @@ class formulaireController extends Controller
         $pdf->Output();
         ob_end_flush();
     }
+    
+    function getDesignation($hint){
+        
+        return 0;
+    }
+    
+    function getType($hint, $designation){
+        
+        return 0;
+    }
 }
 ?>
