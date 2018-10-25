@@ -11,7 +11,7 @@ class Router
         
         if($url == "/project/"){
             
-            $request->controller = "tasks";
+            $request->controller = "formulaire";
             $request->action = "index";
             $request->params = [];
         }
