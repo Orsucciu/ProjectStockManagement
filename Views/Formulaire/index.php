@@ -1,6 +1,6 @@
 <h1>Form</h1>
 <div class="row col-md-12 centered">
-    <form method="post" action="yet to decide lol">
+    <form method="post" action="/project/formulaire/getPDF/">
         Je soussigné : <input type="text" value=""><br>
         Agissant en qualité de :<br>
         <fieldset name="statut">
