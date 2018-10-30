@@ -18,14 +18,16 @@ class formulaireController extends Controller
         //require_once(ROOT . 'Libs/Fpdf/fpdf.php');
         require_once(ROOT . 'Libs/fpdfm/fpdm.php');
         ob_start();
-        $pdf = new FPDF('P', 'mm', 'A4'); //document format declaration
-        $pdf->AddPage();
-        $pdf->Image((ROOT . 'assets/logo.jpg'), 10, 10, 33, 25); //ajout du logo
-        $pdf->SetFont('Times', 'B',18);
-        $pdf->Cell(80,10, utf8_decode('Université de Corse'));
-        $pdf->SetFont('Times', 'B',18);
-        $pdf->Cell(40,40, utf8_decode('Faculté des Sciences et Techniques'));
+        
+        $fields = array(
+            'NOM' => 'JOE'
+        );
+
+        $pdf = new FPDM(ROOT . 'assets/demande.pdf');
+        $pdf->Load($fields, true); // second parameter: false if field values are in ISO-8859-1, true if UTF-8
+        $pdf->Merge();
         $pdf->Output();
+        
         ob_end_flush();
     }
     

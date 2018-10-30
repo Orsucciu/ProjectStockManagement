@@ -11,4 +11,8 @@ class Formulaire extends Model {
 
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    public function getAllDesignations(){
+        
+    }
 }
