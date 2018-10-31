@@ -15,20 +15,20 @@ class formulaireController extends Controller
     
     function getPDF(){
         
-        //require_once(ROOT . 'Libs/Fpdf/fpdf.php');
-        require_once(ROOT . 'Libs/fpdfm/fpdm.php');
-        ob_start();
+        require_once (ROOT . "vendor/autoload.php");
+        $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
+        $document = file_get_contents(ROOT . 'assets/demandeTemplate.html');
+        $document = str_replace("£DATETODAY£", date("d/m/Y"), $document);
+        $document = str_replace("£NAME£", $_POST["name"], $document);
+        $document = str_replace("£FIRSTNAME£", $_POST["firstname"],$document);
+        $document = str_replace("£ADDRESS£", $_POST["address"], $document);
+        $document = str_replace("£PHONE£", $_POST["phone"], $document);
+        $document = str_replace("£MOBILE£", $_POST["mobile"], $document);
+        $document = str_replace("£EMAIL£", $_POST["email"], $document);
         
-        $fields = array(
-            'NOM' => 'JOE'
-        );
-
-        $pdf = new FPDM(ROOT . 'assets/demande.pdf');
-        $pdf->Load($fields, true); // second parameter: false if field values are in ISO-8859-1, true if UTF-8
-        $pdf->Merge();
-        $pdf->Output();
+        $mpdf->WriteHTML($document);
+        $mpdf->Output();
         
-        ob_end_flush();
     }
     
     function getDesignation($hint){
