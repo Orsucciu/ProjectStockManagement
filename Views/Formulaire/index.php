@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="col-sm">
-        <img src=<?php echo (ROOT . "assets/logo.jpg"); ?> alt="logo" width="40%">
+        <img src="assets/logo.jpg" alt="logo" width="40%">
     </div>
     <div class="col-sm">
        <br /><h4>UNIVERSITE DE CORSE<br />

@@ -4,12 +4,7 @@ class formulaireController extends Controller
 {
     function index()
     {
-        require(ROOT . 'Models/Formulaire.php');
-
-        $form = new Formulaire();
-
-        $d['form'] = $form->selectAll();  //$d is the var that will be sent to the view (under another name tho
-        $this->set($d);
+        
         $this->render("index");
     }
     
@@ -32,6 +27,19 @@ class formulaireController extends Controller
         
     }
     
+    function getAllDesignations(){
+        //this fetchs all the designations and should feeds them to the html page
+        require ROOT . 'Models/Formulaire.php';
+        
+        $form = new Formulaire();
+        $result = $form->getAllDesignations();
+        
+        header('Content-Type: application/json');
+        header('Content-Disposition: attachment; filename=designations.json');
+        header('Pragma: no-cache');
+        echo json_encode($result);
+    }
+    
     function getDesignation($hint){
         
         return 0;
@@ -41,5 +49,6 @@ class formulaireController extends Controller
         
         return 0;
     }
+    
 }
 ?>
