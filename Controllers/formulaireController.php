@@ -18,6 +18,7 @@ class formulaireController extends Controller
         require_once (ROOT . "vendor/autoload.php");
         $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         $document = file_get_contents(ROOT . 'assets/demandeTemplate.html');
+        $document = str_replace("£IMAGE£", (ROOT . "assets/logo.jpg"), $document);
         $document = str_replace("£DATETODAY£", date("d/m/Y"), $document);
         $document = str_replace("£NAME£", $_POST["name"], $document);
         $document = str_replace("£FIRSTNAME£", $_POST["firstname"],$document);

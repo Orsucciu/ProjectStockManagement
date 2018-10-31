@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>MVC Todo</title>
+    <title>Gestion de Stocks</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
 
